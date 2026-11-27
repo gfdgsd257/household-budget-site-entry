@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hearth Ledger — Household Budget</title>
+<meta name="description" content="Hearth Ledger helps the Rivera household plan its month: income, spending, budgets, savings goals and reports, all in one place.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f5e'/%3E%3Cpath d='M7 17 L16 8 L25 17 V25 H7 Z' fill='%23f7f4ec'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">⌂</span>
+    <div>
+      <strong>Hearth Ledger</strong>
+      <span class="brand-sub">The Rivera household</span>
+    </div>
+  </div>
+  <div class="month-switch" role="group" aria-label="Choose month">
+    <button id="prevMonth" type="button" aria-label="Previous month">‹</button>
+    <span id="monthLabel" class="month-label">November 2026</span>
+    <button id="nextMonth" type="button" aria-label="Next month">›</button>
+  </div>
+  <div class="topbar-right">
+    <span id="savedNote" class="saved-note" aria-live="polite"></span>
+    <button id="addQuick" class="btn btn-primary" type="button">+ Add transaction</button>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="sidenav" aria-label="Main">
+    <a href="#/dashboard" data-route="dashboard"><span class="nav-ico" aria-hidden="true">▦</span> Dashboard</a>
+    <a href="#/transactions" data-route="transactions"><span class="nav-ico" aria-hidden="true">⇄</span> Transactions</a>
+    <a href="#/budgets" data-route="budgets"><span class="nav-ico" aria-hidden="true">▤</span> Budgets</a>
+    <a href="#/goals" data-route="goals"><span class="nav-ico" aria-hidden="true">◎</span> Goals &amp; Savings</a>
+    <a href="#/reports" data-route="reports"><span class="nav-ico" aria-hidden="true">▮</span> Reports</a>
+    <div class="nav-foot">
+      <p class="nav-foot-title">This month at a glance</p>
+      <p class="nav-foot-line"><span>Income</span><strong id="navIncome">$0</strong></p>
+      <p class="nav-foot-line"><span>Spending</span><strong id="navSpent">$0</strong></p>
+      <p class="nav-foot-line"><span>Left to spend</span><strong id="navLeft" class="good">$0</strong></p>
+      <p class="nav-foot-note">Figures update as you add, edit or delete transactions.</p>
+    </div>
+  </nav>
+
+  <main id="view" class="view" tabindex="-1"></main>
+</div>
+
+<footer class="pagefoot">
+  <p>Hearth Ledger keeps the Rivera household's budget on this device only — nothing leaves your browser.</p>
+  <p class="pagefoot-small">Tip: budgets and goals are saved automatically. Use “Reset demo data” on the Reports page to restore the original figures.</p>
+</footer>
+
+<div id="modalRoot" class="modal-root" hidden></div>
+
+<script src="data.js"></script>
+<script src="charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
